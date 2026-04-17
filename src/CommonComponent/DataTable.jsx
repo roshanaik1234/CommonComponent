@@ -48,6 +48,11 @@ const DataTable = ({
             pagination={pagination}
             paginationPageSize={paginationPageSize}
             paginationPageSizeSelector={paginationPageSizeSelector}
+             defaultColDef={{
+    movable: false,           // ❌ Disable column moving
+    resizable: false,         // ❌ Disable column resizing
+  }}
+  suppressMovableColumns={true}
           />
         </div>
       </AgGridProvider>

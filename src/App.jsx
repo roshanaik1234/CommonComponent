@@ -4,6 +4,7 @@ import InputComp from "./CommonComponent/InputComp";
 import CommonSelect from "./CommonComponent/ReactSelect";
 import DataTable from "./CommonComponent/DataTable";
 import Check_Box_Table from "./CommonComponent/Check_Box_Table";
+import Multi_row_Table from "./CommonComponent/Multi_row_Table";
 
 function App() {
   const [formData, setFormData] = useState({
@@ -57,8 +58,54 @@ function App() {
     { field: "make", flex: 1 },
     { field: "model", flex: 1 },
     { field: "price", flex: 1 },
-    { field: "electric", flex: 1 },
+    { field: "electric", flex: 1,sortable: false, filter: false },
   ]);
+
+  const colDefsM = [
+  { field: "orderId", headerName: "Order ID",flex: 1 },
+  { field: "customer", headerName: "Customer",flex: 1 },
+  { field: "items",    headerName: "Items",flex: 1 },   // ← array → inner table
+  { field: "prices",   headerName: "Price",flex: 1 },   // ← array → inner table
+  { field: "status",   headerName: "Status",flex: 1 },
+];
+
+const rowDataM = [
+  {
+    orderId:  "#1001",
+    customer: "Alice Chen",
+    items:    ["Widget A × 2", "Gadget B × 1", "Doohickey C × 3"],
+    prices:   ["$40.00",       "$15.00",        "$36.00"],
+    status:   "Delivered",
+  },
+  {
+    orderId:  "#1001",
+    customer: "Alice Chen",
+    items:    ["Widget A × 2", "Gadget B × 1", "Doohickey C × 3"],
+    prices:   ["$40.00",       "$15.00",        "$36.00"],
+    status:   "Delivered",
+  },
+  {
+    orderId:  "#1001",
+    customer: "Alice Chen",
+    items:    ["Widget A × 2", "Gadget B × 1", "Doohickey C × 3"],
+    prices:   ["$40.00",       "$15.00",        "$36.00"],
+    status:   "Delivered",
+  },
+  {
+    orderId:  "#1001",
+    customer: "Alice Chen",
+    items:    ["Widget A × 2", "Gadget B × 1", "Doohickey C × 3"],
+    prices:   ["$40.00",       "$15.00",        "$36.00"],
+    status:   "Delivered",
+  },
+  {
+    orderId:  "#1001",
+    customer: "Alice Chen",
+    items:    ["Widget A × 2", "Gadget B × 1", "Doohickey C × 3"],
+    prices:   ["$40.00",       "$15.00",        "$36.00"],
+    status:   "Delivered",
+  },
+];
   return (
     <>
       <div>
@@ -138,6 +185,10 @@ function App() {
        <div>
         <h2>check_Box data table</h2>
         <Check_Box_Table rowData={rowData} colDefs={colDefs} />
+      </div>
+       <div>
+        <h2>Multi_row_Table data table</h2>
+        <Multi_row_Table rowData={rowDataM} colDefs={colDefsM} />
       </div>
     </>
   );
