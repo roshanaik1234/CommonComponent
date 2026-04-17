@@ -2,7 +2,8 @@ import { useState } from "react";
 import "./App.css";
 import InputComp from "./CommonComponent/InputComp";
 import CommonSelect from "./CommonComponent/ReactSelect";
-
+import DataTable from "./CommonComponent/DataTable";
+import Check_Box_Table from "./CommonComponent/Check_Box_Table";
 
 function App() {
   const [formData, setFormData] = useState({
@@ -24,12 +25,40 @@ function App() {
   // react select options
   const [selectedCountry, setSelectedCountry] = useState(null);
   console.log("selectedCountry", selectedCountry);
-    const countries = [
-    { value: 'in', label: 'India' },
-    { value: 'us', label: 'United States' },
-    { value: 'uk', label: 'United Kingdom' },
-    { value: 'ca', label: 'Canada' },
+  const countries = [
+    { value: "in", label: "India" },
+    { value: "us", label: "United States" },
+    { value: "uk", label: "United Kingdom" },
+    { value: "ca", label: "Canada" },
   ];
+
+  const [rowData, setRowData] = useState([
+    { make: "Tesla", model: "Model Y", price: 64950, electric: true },
+    { make: "Ford", model: "F-Series", price: 33850, electric: false },
+    { make: "Toyota", model: "Corolla", price: 29600, electric: false },
+    { make: "Tesla", model: "Model Y", price: 64950, electric: true },
+    { make: "Ford", model: "F-Series", price: 33850, electric: false },
+    { make: "Toyota", model: "Corolla", price: 29600, electric: false },
+    { make: "Mercedes", model: "EQA", price: 48890, electric: true },
+    { make: "Fiat", model: "500", price: 15774, electric: false },
+    { make: "Nissan", model: "Juke", price: 20675, electric: false },
+    { make: "Tesla", model: "Model Y", price: 64950, electric: true },
+    { make: "Ford", model: "F-Series", price: 33850, electric: false },
+    { make: "Toyota", model: "Corolla", price: 29600, electric: false },
+    { make: "Tesla", model: "Model Y", price: 64950, electric: true },
+    { make: "Ford", model: "F-Series", price: 33850, electric: false },
+    { make: "Toyota", model: "Corolla", price: 29600, electric: false },
+    { make: "Mercedes", model: "EQA", price: 48890, electric: true },
+    { make: "Fiat", model: "500", price: 15774, electric: false },
+    { make: "Nissan", model: "Juke", price: 20675, electric: false },
+  ]);
+
+  const [colDefs, setColDefs] = useState([
+    { field: "make", flex: 1 },
+    { field: "model", flex: 1 },
+    { field: "price", flex: 1 },
+    { field: "electric", flex: 1 },
+  ]);
   return (
     <>
       <div>
@@ -92,15 +121,23 @@ function App() {
       <div>
         <h2>common react select</h2>
         <CommonSelect
-        options={countries}
-        value={selectedCountry}
-        onChange={setSelectedCountry}
-        placeholder="Select a country"
-        label="Country"
-        required={false}
-        isMulti={true}
-        // error={selectedCountry ? "" : "Please select a country"}
+          options={countries}
+          value={selectedCountry}
+          onChange={setSelectedCountry}
+          placeholder="Select a country"
+          label="Country"
+          required={false}
+          isMulti={true}
+          // error={selectedCountry ? "" : "Please select a country"}
         />
+      </div>
+      <div>
+        <h2>common data table</h2>
+        <DataTable rowData={rowData} colDefs={colDefs} />
+      </div>
+       <div>
+        <h2>check_Box data table</h2>
+        <Check_Box_Table rowData={rowData} colDefs={colDefs} />
       </div>
     </>
   );
