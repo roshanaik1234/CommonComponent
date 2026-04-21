@@ -25,6 +25,7 @@ function App() {
 
   // react select options
   const [selectedCountry, setSelectedCountry] = useState(null);
+    const [selectedCountrymul, setSelectedCountrymul] = useState(null);
   console.log("selectedCountry", selectedCountry);
   const countries = [
     { value: "in", label: "India" },
@@ -166,6 +167,19 @@ const rowDataM = [
         </div>
       </div>
       <div>
+        <h2>common react select_Multi select</h2>
+        <CommonSelect
+          options={countries}
+          value={selectedCountrymul}
+          onChange={setSelectedCountrymul}
+          placeholder="Select a country"
+          label="Country"
+          required={false}
+          isMulti={true}
+          // error={selectedCountry ? "" : "Please select a country"}
+        />
+      </div>
+      <div>
         <h2>common react select</h2>
         <CommonSelect
           options={countries}
@@ -174,7 +188,7 @@ const rowDataM = [
           placeholder="Select a country"
           label="Country"
           required={false}
-          isMulti={true}
+          isMulti={false}
           // error={selectedCountry ? "" : "Please select a country"}
         />
       </div>
