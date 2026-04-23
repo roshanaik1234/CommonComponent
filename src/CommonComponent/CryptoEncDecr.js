@@ -22,8 +22,10 @@ export const encryptWithCrypto = async (plainText) => {
       mode: CryptoJS.mode.CBC,
       padding: CryptoJS.pad.Pkcs7,
     });
+    console.log("encryptedencrypted",encrypted)
 
     const combined = iv.clone().concat(encrypted.ciphertext);
+    console.log("combinedcombined",combined)
 
     const base64 = CryptoJS.enc.Base64.stringify(combined);
     console.log("base64base64",base64)

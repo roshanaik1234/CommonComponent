@@ -7,8 +7,13 @@ import Check_Box_Table from "./CommonComponent/Check_Box_Table";
 import Multi_row_Table from "./CommonComponent/Multi_row_Table";
 import { convertToBase64 } from "./CommonComponent/ConvertBase64";
 import { base64UrlEncode, decryptWithCrypto, encryptWithCrypto } from "./CommonComponent/CryptoEncDecr";
+import DragDropUpload from "./CommonComponent/CommomDrganddrp";
+import Success from "./CommonComponent/Module/Success";
+import FailModule from "./CommonComponent/Module/FailModule";
 
 function App() {
+  const[showPopup,setShowPopup]=useState(false)
+  const[showPopupfail,setShowPopupfail]=useState(false)
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -130,6 +135,29 @@ const handelEncy=async()=>{
   return (
     <>
       <div>
+          <div>
+      <button onClick={() => setShowPopupfail(true)}>
+        Show fail Popup
+      </button>
+
+      <FailModule 
+        isOpen={showPopupfail} 
+        onClose={() => setShowPopupfail(false)} 
+      />
+    </div>
+       <div>
+      <button onClick={() => setShowPopup(true)}>
+        Show Success Popup
+      </button>
+
+      <Success 
+        isOpen={showPopup} 
+        onClose={() => setShowPopup(false)} 
+      />
+    </div>
+        <div>
+          <DragDropUpload />
+        </div>
         <div>
           <button onClick={handelEncy}>EncytoDecy</button>
         </div>
