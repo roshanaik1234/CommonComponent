@@ -1,10 +1,12 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import InputComp from "./CommonComponent/InputComp";
 import CommonSelect from "./CommonComponent/ReactSelect";
 import DataTable from "./CommonComponent/DataTable";
 import Check_Box_Table from "./CommonComponent/Check_Box_Table";
 import Multi_row_Table from "./CommonComponent/Multi_row_Table";
+import { convertToBase64 } from "./CommonComponent/ConvertBase64";
+import { base64UrlEncode, decryptWithCrypto, encryptWithCrypto } from "./CommonComponent/CryptoEncDecr";
 
 function App() {
   const [formData, setFormData] = useState({
@@ -107,9 +109,34 @@ const rowDataM = [
     status:   "Delivered",
   },
 ];
+
+const handleFileChange = async (e) => {
+  const file = e.target.files[0];
+  const base64 = await convertToBase64(file);
+  console.log(base64);
+};
+
+const handelEncy=async()=>{
+  const id=3
+      const encryptID = await encryptWithCrypto(`${id}`)
+      console.log("encryptID",encryptID)
+    //       const baseEncrypt = base64UrlEncode(encryptID);
+    // console.log("baseEncrypt",baseEncrypt)
+      const decryptID= await decryptWithCrypto(encryptID)
+      console.log("decryptID",decryptID)
+
+}
+
   return (
     <>
       <div>
+        <div>
+          <button onClick={handelEncy}>EncytoDecy</button>
+        </div>
+        <div>
+          <h1>file to base64</h1>
+           <input type="file" onChange={handleFileChange} />
+        </div>
         <h1>commom Input</h1>
         <div style={{ display: "flex", gap: "5px", flexWrap: "wrap" }}>
           <div style={{ width: "33.00%" }}>
@@ -204,6 +231,9 @@ const rowDataM = [
         <h2>Multi_row_Table data table</h2>
         <Multi_row_Table rowData={rowDataM} colDefs={colDefsM} />
       </div>
+
+
+  
     </>
   );
 }
