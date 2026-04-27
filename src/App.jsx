@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import "./App.css";
 import InputComp from "./CommonComponent/InputComp";
 import CommonSelect from "./CommonComponent/ReactSelect";
@@ -6,10 +6,15 @@ import DataTable from "./CommonComponent/DataTable";
 import Check_Box_Table from "./CommonComponent/Check_Box_Table";
 import Multi_row_Table from "./CommonComponent/Multi_row_Table";
 import { convertToBase64 } from "./CommonComponent/ConvertBase64";
-import { base64UrlEncode, decryptWithCrypto, encryptWithCrypto } from "./CommonComponent/CryptoEncDecr";
+import {decryptWithCrypto, encryptWithCrypto } from "./CommonComponent/CryptoEncDecr";
 import DragDropUpload from "./CommonComponent/CommomDrganddrp";
 import Success from "./CommonComponent/Module/Success";
 import FailModule from "./CommonComponent/Module/FailModule";
+import FormValidation from "./CommonComponent/FormValidation";
+import ScrollProgressBar from "./CommonComponent/ScrollProgressBar/ScrollProgressBar";
+import Accordion from "./CommonComponent/Accordion/Accordion";
+import Cards from "./CommonComponent/Card/Card";
+// import { Avatar, AvatarCount } from "./CommonComponent/Avatar/Avatar";
 
 function App() {
   const[showPopup,setShowPopup]=useState(false)
@@ -132,9 +137,48 @@ const handelEncy=async()=>{
 
 }
 
+const demoItems = [
+  {
+    title: "What is a reusable component?",
+    content:
+      "A reusable component is a self-contained UI element that can be used across multiple parts of an application. It accepts props to customize its behavior and appearance.",
+  },
+  {
+    title: "How do I use this Accordion?",
+    content:
+      "Pass an `items` array of { title, content } objects. Use `allowMultiple` to let more than one panel open at a time. You can also use <AccordionItem> directly for custom children.",
+  },
+  {
+    title: "Can I nest content inside?",
+    content:
+      "Yes! The content field accepts any React node — strings, JSX, or even nested components. You have full control over what appears inside each panel.",
+  },
+  {
+    title: "Is animation included?",
+    content:
+      "Smooth open/close animation is handled with CSS grid-template-rows transition — no JS animation libraries required. The icon also rotates to indicate state.",
+  },
+];
+
   return (
     <>
+     <ScrollProgressBar /> 
+     {/* <div className="Avatar">
+      <Avatar />
+      <AvatarCount />
+     </div> */}
+     <div className="Card">
+        <Cards/>  
+     </div>
+     <div className="Accordion">
+      <h1>Accordion</h1>
+      <Accordion items={demoItems} allowMultiple={false}/>
+     </div>
       <div>
+        {/* <div>
+        <FormValidation/>
+      </div> */}
+
           <div>
       <button onClick={() => setShowPopupfail(true)}>
         Show fail Popup
@@ -259,8 +303,7 @@ const handelEncy=async()=>{
         <h2>Multi_row_Table data table</h2>
         <Multi_row_Table rowData={rowDataM} colDefs={colDefsM} />
       </div>
-
-
+      
   
     </>
   );

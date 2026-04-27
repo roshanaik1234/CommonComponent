@@ -12,7 +12,7 @@ const FailModule = ({ isOpen, onClose }) => {
           ✕
         </div>
 
-        <h2>Something went wrong</h2>
+        <h2>Error</h2>
         <p>
           Your action could not be completed.<br />
           Please try again.

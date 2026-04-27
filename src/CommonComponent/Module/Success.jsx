@@ -12,7 +12,7 @@ const Success = ({ isOpen, onClose }) => {
           ✓
         </div>
 
-        <h2>All done!</h2>
+        <h2>Success</h2>
         <p>
           Your action was completed successfully.<br />
           Everything looks great.

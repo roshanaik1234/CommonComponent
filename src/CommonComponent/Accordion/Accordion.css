@@ -1,0 +1,94 @@
+  @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap');
+ 
+  .accordion-wrapper {
+    font-family: 'DM Sans', sans-serif;
+    width: 100%;
+    /* max-width: 640px; */
+  }
+ 
+  .accordion-item {
+    border: 1.5px solid #e2e2e2;
+    border-radius: 12px;
+    margin-bottom: 10px;
+    overflow: hidden;
+    background: #fff;
+    transition: box-shadow 0.2s ease, border-color 0.2s ease;
+  }
+ 
+  .accordion-item:hover {
+    border-color: #b0b0b0;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+  }
+ 
+  .accordion-item.open {
+    border-color: #1a1a1a;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.10);
+  }
+ 
+  .accordion-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 22px;
+    cursor: pointer;
+    user-select: none;
+    gap: 16px;
+  }
+ 
+  .accordion-title {
+    font-size: 15px;
+    font-weight: 500;
+    color: #1a1a1a;
+    flex: 1;
+    letter-spacing: -0.01em;
+  }
+ 
+  .accordion-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: #f3f3f3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: background 0.2s ease, transform 0.3s cubic-bezier(0.4,0,0.2,1);
+  }
+ 
+  .accordion-item.open .accordion-icon {
+    background: #1a1a1a;
+    transform: rotate(45deg);
+  }
+ 
+  .accordion-icon svg {
+    transition: stroke 0.2s;
+    stroke: #555;
+  }
+ 
+  .accordion-item.open .accordion-icon svg {
+    stroke: #fff;
+  }
+ 
+  .accordion-body-wrapper {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.32s cubic-bezier(0.4,0,0.2,1);
+  }
+ 
+  .accordion-item.open .accordion-body-wrapper {
+    grid-template-rows: 1fr;
+  }
+ 
+  .accordion-body-inner {
+    overflow: hidden;
+  }
+ 
+  .accordion-body {
+    padding: 0 22px 20px 22px;
+    font-size: 14px;
+    color: #555;
+    line-height: 1.7;
+    border-top: 1px solid #f0f0f0;
+    padding-top: 16px;
+  }
+ 
