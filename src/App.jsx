@@ -16,6 +16,7 @@ import Accordion from "./CommonComponent/Accordion/Accordion";
 import Cards from "./CommonComponent/Card/Card";
 import CommonsideBar from "./CommonComponent/SideBar/CommonsideBar";
 import CreateCommonSideBar from "./CommonComponent/SideBar/CreateCommonSideBar";
+import ToastAlert, { useToast } from "./CommonComponent/ToastAlert";
 // import { Avatar, AvatarCount } from "./CommonComponent/Avatar/Avatar";
 
 function App() {
@@ -162,8 +163,15 @@ const demoItems = [
   },
 ];
 
+ const { toasts, showToast, removeToast } = useToast();
+
   return (
     <>
+     <ToastAlert toasts={toasts} onRemove={removeToast} />
+     <button onClick={()=>showToast("success", "Saved!", "Record updated.")}>ToastSuccess</button>
+<button onClick={()=>showToast("error",   "Failed", "Could not connect.")}>ToastFails</button>
+<button onClick={()=>showToast("warning", "Heads up", "Session expires soon.")}>ToastWarning</button>
+<button onClick={()=>showToast("info",    "FYI", "New version available.")}>Toastinfo</button>
      <ScrollProgressBar /> 
      {/* <div className="Avatar">
       <Avatar />
