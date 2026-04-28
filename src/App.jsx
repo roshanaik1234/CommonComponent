@@ -14,6 +14,8 @@ import FormValidation from "./CommonComponent/FormValidation";
 import ScrollProgressBar from "./CommonComponent/ScrollProgressBar/ScrollProgressBar";
 import Accordion from "./CommonComponent/Accordion/Accordion";
 import Cards from "./CommonComponent/Card/Card";
+import CommonsideBar from "./CommonComponent/SideBar/CommonsideBar";
+import CreateCommonSideBar from "./CommonComponent/SideBar/CreateCommonSideBar";
 // import { Avatar, AvatarCount } from "./CommonComponent/Avatar/Avatar";
 
 function App() {
@@ -306,6 +308,11 @@ const demoItems = [
       
   
     </>
+
+    // <>
+    // {/* <CommonsideBar /> */}
+    // <CreateCommonSideBar />
+    // </>
   );
 }
 

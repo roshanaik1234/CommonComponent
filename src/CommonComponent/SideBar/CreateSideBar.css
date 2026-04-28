@@ -1,0 +1,76 @@
+/* .sidebarComponent{
+    width: 250px;
+    height: 100vh;
+    box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+}
+
+.sidebarComponent div {
+    display: block;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #333;
+}
+
+.sidebarComponent div.active {
+    background-color: #007bff;
+    color: white;
+    border-radius: 6px;
+} */
+
+.sidebarComponent {
+    width: 220px;
+    height: 100vh;
+    background-color: #e0e0e7;
+    transition: width 0.3s ease;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.sidebarComponent.collapsed {
+    width: 60px;
+}
+
+.toggleBtn {
+    display: block;
+    margin-left: auto;
+    background: none;
+    border: 1px solid #555;
+    color: rgb(26, 25, 25);
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 4px;
+    margin-bottom: 16px;
+}
+
+.sidebarItem {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    color: #141414;
+    transition: background 0.2s;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.sidebarItem:hover {
+    background-color: #2e2e45;
+    color: white;
+}
+
+.sidebarItem.active {
+    background-color: #007bff;
+    color: white;
+}
+
+.icon {
+    font-size: 18px;
+    min-width: 20px;
+    text-align: center;
+}
+
+.label {
+    font-size: 14px;
+}
