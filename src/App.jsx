@@ -17,6 +17,8 @@ import Cards from "./CommonComponent/Card/Card";
 import CommonsideBar from "./CommonComponent/SideBar/CommonsideBar";
 import CreateCommonSideBar from "./CommonComponent/SideBar/CreateCommonSideBar";
 import ToastAlert, { useToast } from "./CommonComponent/ToastAlert";
+import AOSLabiry from "./CommonComponent/ScrollAnimation/AOSLabiry";
+import TypingAnimation from "./CommonComponent/TypingAnimation/TypingAnimation";
 // import { Avatar, AvatarCount } from "./CommonComponent/Avatar/Avatar";
 
 function App() {
@@ -313,6 +315,8 @@ const demoItems = [
         <h2>Multi_row_Table data table</h2>
         <Multi_row_Table rowData={rowDataM} colDefs={colDefsM} />
       </div>
+      <AOSLabiry/>
+      <TypingAnimation />
       
   
     </>

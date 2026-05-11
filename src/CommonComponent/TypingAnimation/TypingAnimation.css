@@ -1,0 +1,39 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap'); */
+
+/* .typing-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #0f0f0f;
+} */
+
+.typing-container {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.typed-text {
+  /* font-family: 'Special Elite', monospace; */
+  font-size: 12px;
+  /* font-weight: 400; */
+  /* color: #f0ede4; */
+  white-space: pre-wrap;
+  min-height: 1px;
+}
+
+.cursor {
+  display: block;
+  width: 3px;
+  /* height: 2.2rem; */
+  background-color: #9e863f;
+  border-radius: 1px;
+  animation: blink 0.75s step-end infinite;
+  flex-shrink: 0;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
